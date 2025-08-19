@@ -16,6 +16,14 @@
 - **Choice:** Next.js
 - **Reasoning:** Provides hybrid rendering (SSG for static pages, CSR for authenticated features), strong ecosystem for GraphQL integration, and excellent developer experience.
 
+### Commit Message Convention
+- **Options:**
+  - Conventional Commits
+  - Other
+- **Choice:** Conventional Commits + Husky + Commitlint + Standard Version
+- **Reasoning:** Conventional Commits provide a clear and consistent way to structure commit messages, making it easier to understand the history of changes and automate versioning and changelog generation.
+- **Link:** [Conventional Commits](https://www.conventionalcommits.org/)
+
 ## Linter
 - **Options:**
   - ESLint
