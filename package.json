@@ -10,23 +10,35 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "commit": "git-cz",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major",
+    "prepare": "husky"
   },
   "dependencies": {
+    "husky": "^9.1.7",
+    "next": "15.4.7",
     "react": "19.1.1",
-    "react-dom": "19.1.1",
-    "next": "15.4.7"
+    "react-dom": "19.1.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.4.7",
-    "@eslint/eslintrc": "^3"
+    "lint-staged": "^16.1.5",
+    "standard-version": "^9.5.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   },
   "volta": {
     "node": "22.18.0",
@@ -35,5 +47,57 @@
   "engines": {
     "node": ">=22 <23.0",
     "pnpm": ">=10.14.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "standard-version": {
+    "header": "# Changelog\n\nAll notable changes to this project will be documented in this file.\n",
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "hidden": true
+      },
+      {
+        "type": "docs",
+        "section": "Documentation"
+      },
+      {
+        "type": "style",
+        "hidden": true
+      },
+      {
+        "type": "refactor",
+        "section": "Code Refactoring"
+      },
+      {
+        "type": "perf",
+        "section": "Performance Improvements"
+      },
+      {
+        "type": "test",
+        "hidden": true
+      },
+      {
+        "type": "build",
+        "hidden": true
+      },
+      {
+        "type": "ci",
+        "hidden": true
+      }
+    ],
+    "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
+    "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}"
   }
 }
