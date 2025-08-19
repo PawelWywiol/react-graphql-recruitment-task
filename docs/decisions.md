@@ -15,3 +15,11 @@
   - Remix.run
 - **Choice:** Next.js
 - **Reasoning:** Provides hybrid rendering (SSG for static pages, CSR for authenticated features), strong ecosystem for GraphQL integration, and excellent developer experience.
+
+## Linter
+- **Options:**
+  - ESLint
+  - Biome
+- **Choice:** Biome
+- **Reasoning:** Biome offers a more integrated and streamlined approach to linting and formatting, with built-in support for various languages and frameworks, making it a better fit for the project.
+- **Link:** [Biome](https://biomejs.dev/)
