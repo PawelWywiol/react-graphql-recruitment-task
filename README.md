@@ -15,3 +15,44 @@ The goal is to create a simple application that demonstrates your understanding 
 
 - [Project Overview and Development Workflow](./docs/project.md)
 - [Technical Decisions](./docs/decisions.md)
+
+## Requirements
+
+To keep `node` and `pnpm` versions the same on development environments, use [Volta](https://volta.sh/).
+
+Required versions are specified in the `package.json` file under the `volta` field:
+
+```json
+  "volta": {
+    "node": "22.18.0",
+    "pnpm": "10.14.0"
+  },
+```
+
+## Getting Started
+
+### Development Setup
+
+Copy the `.env.example` file to `.env` and fill in the required environment variables.
+
+```bash
+cp .env.example .env
+```
+
+Install project dependencies:
+
+```bash
+pnpm install
+```
+
+Generate GraphQL types:
+
+```bash
+pnpm codegen
+```
+
+Run the development server:
+
+```bash
+pnpm dev
+```
