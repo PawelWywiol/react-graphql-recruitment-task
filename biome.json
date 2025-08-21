@@ -10,6 +10,7 @@
     "includes": [
       "**/*.ts",
       "**/*.tsx",
+      "!src/graphql/types/*.ts",
       "!**/node_modules",
       "!**/dist",
       "!**/build",
