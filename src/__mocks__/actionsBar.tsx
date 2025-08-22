@@ -5,7 +5,7 @@ import { NoteIcon } from '@/components/icons/note-icon';
 import { TargetIcon } from '@/components/icons/target-icon';
 import { WalletIcon } from '@/components/icons/wallet-icon';
 
-export const actionsBarItems: ActionsBarItem[] = [
+export const mockedActionsBarItems: ActionsBarItem[] = [
   {
     icon: <MapIcon />,
     label: 'Map',

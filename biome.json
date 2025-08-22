@@ -38,7 +38,10 @@
       "recommended": true,
       "a11y": "error",
       "security": "error",
-      "performance": "info",
+      "performance": {
+        "recommended": true,
+        "useSolidForComponent": "off"
+      },
       "nursery": {
         "recommended": true,
         "useExplicitType": "on"

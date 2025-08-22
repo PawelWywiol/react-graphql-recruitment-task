@@ -5,7 +5,7 @@ import type { ActionsBarItem } from './actions-bar.types';
 import { Button } from '../ui/button';
 
 export const ActionsBar = ({ items }: { items: ActionsBarItem[] }) => (
-  <nav className="absolute bottom-0 left-0 right-0">
+  <nav className="fixed bottom-0 left-0 right-0 bg-background">
     <ul className="relative flex flex-row justify-between px-6 container-content">
       {items.map(({ icon, label, active, onClick }) => (
         <li key={label}>
