@@ -24,7 +24,7 @@
 - **Reasoning:** Conventional Commits provide a clear and consistent way to structure commit messages, making it easier to understand the history of changes and automate versioning and changelog generation.
 - **Link:** [Conventional Commits](https://www.conventionalcommits.org/)
 
-## Linter
+### Linter
 - **Options:**
   - ESLint
   - Biome
@@ -32,7 +32,7 @@
 - **Reasoning:** Biome offers a more integrated and streamlined approach to linting and formatting, with built-in support for various languages and frameworks, making it a better fit for the project.
 - **Link:** [Biome](https://biomejs.dev/)
 
-## Code Generation
+### Code Generation
 - **Options:**
   - GraphQL Code Generator
   - Other
@@ -40,7 +40,7 @@
 - **Reasoning:** Provides a powerful and flexible way to generate TypeScript types and React hooks from GraphQL schemas and operations, streamlining the development process and improving type safety.
 - **Link:** [GraphQL Code Generator](https://the-guild.dev/graphql/codegen)
 
-## GraphQL Client
+### GraphQL Client
 - **Options:**
   - Apollo Client
   - Other
