@@ -13,10 +13,14 @@ const config: CodegenConfig = {
   ignoreNoDocuments: true,
   generates: {
     'src/graphql/types/schema.ts': {
-      plugins: ['typescript'],
+      plugins: [{ add: { content: '// @ts-nocheck' } }, 'typescript'],
     },
     'src/graphql/types/generated.ts': {
-      plugins: ['typescript-operations', 'typescript-react-apollo'],
+      plugins: [
+        { add: { content: '// @ts-nocheck' } },
+        'typescript-operations',
+        'typescript-react-apollo',
+      ],
       config: {
         withHooks: true,
         withHOC: false,
