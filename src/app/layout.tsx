@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 
 import { ApolloProvider } from '@/lib/apollo/apollo.provider';
 
-import { ErrorBoundary } from '@/components/error-boundary';
+import { ErrorBoundary } from '@/components/error-boundry/error-boundary';
 
 import './globals.css';
 
