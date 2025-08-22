@@ -1,14 +1,13 @@
 import type { useForm } from 'react-hook-form';
 
-import type { LoginUserPayload } from '@/services/users/users-types';
-
+import type { MutationLoginUserArgs } from '@/graphql/types/schema';
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
 export const EmailFormField = ({
   form,
 }: {
-  form: ReturnType<typeof useForm<LoginUserPayload>>;
+  form: ReturnType<typeof useForm<MutationLoginUserArgs>>;
 }) => (
   <FormField
     control={form.control}

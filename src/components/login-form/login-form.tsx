@@ -1,9 +1,9 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 import { type Resolver, useForm } from 'react-hook-form';
 
-import type { LoginUserPayload } from '@/services/users/users-types';
 import {
   loginUserPayloadSchema,
   type ValidLoginUserPayload,
@@ -12,10 +12,17 @@ import {
 import { EmailFormField } from './form-field/email-form-field';
 import { PasswordFormField } from './form-field/password-form-field';
 
+import type { MutationLoginUserArgs } from '@/graphql/types/schema';
+import { LOGGED_IN_ROUTE_PATH } from '@/config/route';
+import { AUTH_TOKEN_LOCAL_STORAGE_KEY } from '@/config/storage';
+import { useLoginUserMutation } from '@/graphql/types/generated';
 import { Button } from '../ui/button';
 import { Form } from '../ui/form';
 
 export const LoginForm = () => {
+  const router = useRouter();
+  const [loginUserMutation, { loading, error }] = useLoginUserMutation();
+
   const defaultValues: ValidLoginUserPayload = {
     email: '',
     password: '',
@@ -25,13 +32,30 @@ export const LoginForm = () => {
     loginUserPayloadSchema,
   ) as unknown as Resolver<ValidLoginUserPayload>;
 
-  const form = useForm<LoginUserPayload>({
+  const form = useForm<MutationLoginUserArgs>({
     resolver,
     defaultValues,
   });
 
-  const onSubmit = async (_: ValidLoginUserPayload) => {
-    //TODO: Handle form submission
+  const onSubmit = async (data: ValidLoginUserPayload) => {
+    try {
+      const result = await loginUserMutation({
+        variables: {
+          email: data.email,
+          password: data.password,
+        },
+      });
+
+      if (result.data?.loginUser?.token) {
+        globalThis?.localStorage?.setItem(
+          AUTH_TOKEN_LOCAL_STORAGE_KEY,
+          result.data.loginUser.token,
+        );
+        router.replace(LOGGED_IN_ROUTE_PATH);
+      }
+    } catch {
+      //TODO: Implement error logging e.g. Sentry
+    }
   };
 
   return (
@@ -45,8 +69,9 @@ export const LoginForm = () => {
           <EmailFormField form={form} />
           <PasswordFormField form={form} />
         </div>
-        <Button type="submit" className="mt-4">
-          Submit
+        {error && <div className="text-red-500 text-sm">{error.message}</div>}
+        <Button type="submit" className="mt-4" disabled={loading}>
+          {loading ? 'Logging in...' : 'Submit'}
         </Button>
       </form>
     </Form>

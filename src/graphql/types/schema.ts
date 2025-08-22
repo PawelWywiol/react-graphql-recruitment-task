@@ -3,24 +3,20 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = {
-  [_ in K]?: never;
-};
-export type Incremental<T> =
-  | T
-  | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string };
-  String: { input: string; output: string };
-  Boolean: { input: boolean; output: boolean };
-  Int: { input: number; output: number };
-  Float: { input: number; output: number };
-  Date: { input: any; output: any };
-  DateTime: { input: any; output: any };
-  DateTimeUtc: { input: any; output: any };
-  Time: { input: any; output: any };
-  Upload: { input: any; output: any };
+  ID: { input: string; output: string; }
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
+  Date: { input: any; output: any; }
+  DateTime: { input: any; output: any; }
+  DateTimeUtc: { input: any; output: any; }
+  Time: { input: any; output: any; }
+  Upload: { input: any; output: any; }
 };
 
 /** The address. */
@@ -101,7 +97,7 @@ export enum AddressType {
   /** The entry type. */
   Entry = 'ENTRY',
   /** The exit type. */
-  Exit = 'EXIT',
+  Exit = 'EXIT'
 }
 
 /** The availability. */
@@ -182,7 +178,7 @@ export enum AvailabilityType {
   /** The available type. */
   Available = 'AVAILABLE',
   /** The unavailable type. */
-  Unavailable = 'UNAVAILABLE',
+  Unavailable = 'UNAVAILABLE'
 }
 
 /** The bank account. */
@@ -370,7 +366,7 @@ export enum ButtonLabel {
   /** The C label. */
   C = 'C',
   /** The D label. */
-  D = 'D',
+  D = 'D'
 }
 
 /** The button payload. */
@@ -614,7 +610,7 @@ export type EmailVerificationResponse = {
 /** The email verification statuses. */
 export enum EmailVerificationStatus {
   /** The verified email status. */
-  Verified = 'VERIFIED',
+  Verified = 'VERIFIED'
 }
 
 /** The estimate parking reservation amount input. */
@@ -676,7 +672,7 @@ export type ForgotPasswordResponse = {
 /** The forgot password statuses. */
 export enum ForgotPasswordStatus {
   /** The sent email status. */
-  EmailSent = 'EMAIL_SENT',
+  EmailSent = 'EMAIL_SENT'
 }
 
 /** The authentication token response. */
@@ -768,7 +764,7 @@ export enum ImageSize {
   /** The medium size. */
   Medium = 'MEDIUM',
   /** The small size. */
-  Small = 'SMALL',
+  Small = 'SMALL'
 }
 
 /** The image statuses. */
@@ -776,7 +772,7 @@ export enum ImageStatus {
   /** The converted status. */
   Converted = 'CONVERTED',
   /** The uploaded status. */
-  Uploaded = 'UPLOADED',
+  Uploaded = 'UPLOADED'
 }
 
 /** The issue. */
@@ -884,7 +880,7 @@ export enum IssueStatus {
   /** The pending status. */
   Pending = 'PENDING',
   /** The resolved status. */
-  Resolved = 'RESOLVED',
+  Resolved = 'RESOLVED'
 }
 
 /** The issue types. */
@@ -904,7 +900,7 @@ export enum IssueType {
   /** The terms violation type. */
   TermsViolation = 'TERMS_VIOLATION',
   /** The user complaint type. */
-  UserComplaint = 'USER_COMPLAINT',
+  UserComplaint = 'USER_COMPLAINT'
 }
 
 /** The languages. */
@@ -912,7 +908,7 @@ export enum Language {
   /** The English language. */
   English = 'ENGLISH',
   /** The Polish language. */
-  Polish = 'POLISH',
+  Polish = 'POLISH'
 }
 
 /** The login response. */
@@ -936,7 +932,7 @@ export enum MemberRole {
   /** The member role. */
   Member = 'MEMBER',
   /** The owner role. */
-  Owner = 'OWNER',
+  Owner = 'OWNER'
 }
 
 /** The membership. */
@@ -1086,160 +1082,192 @@ export type Mutation = {
   verifyEmail: EmailVerificationResponse;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationActivatePilotArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationActivateVehicleArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationChangeImagePositionArgs = {
   input: ChangeImagePositionInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationCompleteReservationArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationCreateAddressArgs = {
   input: CreateAddressInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationCreateAvailabilityArgs = {
   input: CreateAvailabilityInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationCreateBankAccountArgs = {
   input: CreateBankAccountInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationCreateBillingArgs = {
   input: CreateBillingInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationCreateIssueArgs = {
   input: CreateIssueInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationCreateManySpotsArgs = {
   input: CreateManySpotsInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationCreateOrganizationArgs = {
   input: CreateOrganizationInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationCreateParkingArgs = {
   input: CreateParkingInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationCreatePilotArgs = {
   input: CreatePilotInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationCreatePriceArgs = {
   input: CreatePriceInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationCreateSpotArgs = {
   input: CreateSpotInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationCreateVehicleArgs = {
   input: CreateVehicleInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationDeactivateParkingArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationDeactivatePilotArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationDeactivateVehicleArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationDeleteAddressArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationDeleteAvailabilityArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationDeleteBankAccountArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationDeleteBillingArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationDeleteImageArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationDeleteParkingArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationDeletePilotArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationDeletePriceArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationDeleteSpotArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationEstimateParkingReservationAmountArgs = {
   input: EstimateParkingReservationAmountInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationExtendReservationArgs = {
   input: ExtendReservationInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationForgotPasswordArgs = {
   input: ForgotPasswordInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationLoginUserArgs = {
@@ -1247,25 +1275,30 @@ export type MutationLoginUserArgs = {
   password: Scalars['String']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationLoginUserWithTokenArgs = {
   token: Scalars['String']['input'];
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationMarkBankAccountAsDefaultArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationMarkPilotAsDefaultArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationMarkVehicleAsPrimaryArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationRegisterUserArgs = {
@@ -1276,85 +1309,102 @@ export type MutationRegisterUserArgs = {
   terms: Scalars['Boolean']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationRequestBalanceTopUpArgs = {
   input: TopUpAccountBalanceUpInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationResendEmailVerificationArgs = {
   input: ResendEmailVerificationInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationReserveParkingArgs = {
   input: ReserveParkingInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationReserveParkingSpotArgs = {
   input: ReserveParkingSpotInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationResetPasswordArgs = {
   input: ResetPasswordInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationRetryParkingVerificationArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationSetPrimaryImageArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationUpdateBillingArgs = {
   input: UpdateBillingInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationUpdateButtonArgs = {
   input: UpdateButtonInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationUpdateParkingArgs = {
   input: UpdateParkingInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationUpdatePasswordArgs = {
   input: UpdatePasswordInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationUpdatePilotArgs = {
   input: UpdatePilotInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationUpdateSpotArgs = {
   input: UpdateSpotInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationUpdateVehicleArgs = {
   input: UpdateVehicleInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationUploadImageArgs = {
   input: UploadImageInput;
 };
 
+
 /** The fields available for modifying data through mutations. */
 export type MutationUploadMultipleImagesArgs = {
   input: UploadMultipleImagesInput;
 };
+
 
 /** The fields available for modifying data through mutations. */
 export type MutationVerifyEmailArgs = {
@@ -1403,7 +1453,7 @@ export type OrderByClause = {
 /** Aggregate functions when ordering by a relation without specifying a column. */
 export enum OrderByRelationAggregateFunction {
   /** Amount of items. */
-  Count = 'COUNT',
+  Count = 'COUNT'
 }
 
 /** Aggregate functions when ordering by a relation that may specify a column. */
@@ -1417,7 +1467,7 @@ export enum OrderByRelationWithColumnAggregateFunction {
   /** Minimum. */
   Min = 'MIN',
   /** Sum. */
-  Sum = 'SUM',
+  Sum = 'SUM'
 }
 
 /** A paginated list of Order items. */
@@ -1436,7 +1486,7 @@ export enum OrderProduct {
   /** The parking spot rental product. */
   ParkingSpotRental = 'PARKING_SPOT_RENTAL',
   /** The parking spot rental extension product. */
-  ParkingSpotRentalExtension = 'PARKING_SPOT_RENTAL_EXTENSION',
+  ParkingSpotRentalExtension = 'PARKING_SPOT_RENTAL_EXTENSION'
 }
 
 /** The order statuses. */
@@ -1450,7 +1500,7 @@ export enum OrderStatus {
   /** The paid status. */
   Paid = 'PAID',
   /** The placed status. */
-  Placed = 'PLACED',
+  Placed = 'PLACED'
 }
 
 /** The organization. */
@@ -1507,7 +1557,7 @@ export enum OrganizationStatus {
   /** The inactive status. */
   Inactive = 'INACTIVE',
   /** The pending status. */
-  Pending = 'PENDING',
+  Pending = 'PENDING'
 }
 
 /** The organization types. */
@@ -1517,7 +1567,7 @@ export enum OrganizationType {
   /** The company type. */
   Company = 'COMPANY',
   /** The other type. */
-  Other = 'OTHER',
+  Other = 'OTHER'
 }
 
 /** Information about pagination using a fully featured paginator. */
@@ -1653,7 +1703,7 @@ export enum ParkingState {
   /** The free state. */
   Free = 'FREE',
   /** The full state. */
-  Full = 'FULL',
+  Full = 'FULL'
 }
 
 /** The parking statuses. */
@@ -1665,7 +1715,7 @@ export enum ParkingStatus {
   /** The pending status. */
   PendingVerification = 'PENDING_VERIFICATION',
   /** The rejected verification status. */
-  RejectedVerification = 'REJECTED_VERIFICATION',
+  RejectedVerification = 'REJECTED_VERIFICATION'
 }
 
 /** The payment. */
@@ -1698,7 +1748,7 @@ export enum PaymentCurrency {
   /** The EUR currency. */
   Eur = 'EUR',
   /** The PLN currency. */
-  Pln = 'PLN',
+  Pln = 'PLN'
 }
 
 /** The payment gateways. */
@@ -1710,7 +1760,7 @@ export enum PaymentGateway {
   /** The Paynow gateway. */
   Paynow = 'PAYNOW',
   /** The Tpay gateway. */
-  Tpay = 'TPAY',
+  Tpay = 'TPAY'
 }
 
 /** The payment methods. */
@@ -1722,7 +1772,7 @@ export enum PaymentMethod {
   /** The redirect method. */
   Redirect = 'REDIRECT',
   /** The wallet method. */
-  Wallet = 'WALLET',
+  Wallet = 'WALLET'
 }
 
 /** A paginated list of Payment items. */
@@ -1752,7 +1802,7 @@ export enum PaymentStatus {
   /** The refunded status. */
   Refunded = 'REFUNDED',
   /** The succeeded status. */
-  Succeeded = 'SUCCEEDED',
+  Succeeded = 'SUCCEEDED'
 }
 
 /** The pdf paper format. */
@@ -1786,7 +1836,7 @@ export enum PdfPaperFormat {
   /** The 1000x1500 paper format. */
   Format_1000X1500 = 'FORMAT_1000X1500',
   /** The 1000x2000 paper format. */
-  Format_1000X2000 = 'FORMAT_1000X2000',
+  Format_1000X2000 = 'FORMAT_1000X2000'
 }
 
 /** The pdf paper orientation. */
@@ -1794,7 +1844,7 @@ export enum PdfPaperOrientation {
   /** The landscape paper orientation. */
   Landscape = 'LANDSCAPE',
   /** The portrait paper orientation. */
-  Portrait = 'PORTRAIT',
+  Portrait = 'PORTRAIT'
 }
 
 /** The pilot. */
@@ -1960,7 +2010,7 @@ export enum PricePeriod {
   /** The week period. */
   Week = 'WEEK',
   /** The weekend period. */
-  Weekend = 'WEEKEND',
+  Weekend = 'WEEKEND'
 }
 
 /** The price filters input. */
@@ -2051,10 +2101,12 @@ export type Query = {
   vehicles: VehiclePaginator;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryAddressArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryAddressesArgs = {
@@ -2062,6 +2114,7 @@ export type QueryAddressesArgs = {
   orderBy?: InputMaybe<Array<QueryAddressesOrderByOrderByClause>>;
   page?: InputMaybe<Scalars['Int']['input']>;
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryAvailabilitiesArgs = {
@@ -2071,15 +2124,18 @@ export type QueryAvailabilitiesArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryAvailabilityArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryBankAccountArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryBankAccountsArgs = {
@@ -2088,10 +2144,12 @@ export type QueryBankAccountsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryBillingArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryBillingsArgs = {
@@ -2100,10 +2158,12 @@ export type QueryBillingsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryImageArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryImagesArgs = {
@@ -2113,10 +2173,12 @@ export type QueryImagesArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryIssueArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryIssuesArgs = {
@@ -2126,10 +2188,12 @@ export type QueryIssuesArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryMembershipArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryMembershipsArgs = {
@@ -2139,12 +2203,14 @@ export type QueryMembershipsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryOrdersArgs = {
   first?: Scalars['Int']['input'];
   orderBy?: InputMaybe<Array<QueryOrdersOrderByOrderByClause>>;
   page?: InputMaybe<Scalars['Int']['input']>;
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryOrganizationsArgs = {
@@ -2153,20 +2219,24 @@ export type QueryOrganizationsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryParkingArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryParkingByIdentifierArgs = {
   identifier: Scalars['String']['input'];
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryParkingImagesArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryParkingsArgs = {
@@ -2176,10 +2246,12 @@ export type QueryParkingsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryPaymentArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryPaymentsArgs = {
@@ -2188,10 +2260,12 @@ export type QueryPaymentsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryPilotArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryPilotsArgs = {
@@ -2201,10 +2275,12 @@ export type QueryPilotsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryPriceArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryPricesArgs = {
@@ -2214,6 +2290,7 @@ export type QueryPricesArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryRelatedIssuesArgs = {
   filter?: InputMaybe<RelatedIssuesFiltersInput>;
@@ -2222,10 +2299,12 @@ export type QueryRelatedIssuesArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryReservationArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryReservationsArgs = {
@@ -2235,10 +2314,12 @@ export type QueryReservationsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QuerySignArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QuerySignsArgs = {
@@ -2248,15 +2329,18 @@ export type QuerySignsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QuerySpotArgs = {
   id: Scalars['ID']['input'];
 };
 
+
 /** The fields available at the top level of queries. */
 export type QuerySpotByParkingIdentifierArgs = {
   input: SpotByParkingIdentifierInput;
 };
+
 
 /** The fields available at the top level of queries. */
 export type QuerySpotsArgs = {
@@ -2265,10 +2349,12 @@ export type QuerySpotsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
 /** The fields available at the top level of queries. */
 export type QueryVehicleArgs = {
   id: Scalars['ID']['input'];
 };
+
 
 /** The fields available at the top level of queries. */
 export type QueryVehiclesArgs = {
@@ -2280,7 +2366,7 @@ export type QueryVehiclesArgs = {
 
 /** Allowed column names for Query.addresses.orderBy. */
 export enum QueryAddressesOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.addresses.orderBy. */
@@ -2293,7 +2379,7 @@ export type QueryAddressesOrderByOrderByClause = {
 
 /** Allowed column names for Query.availabilities.orderBy. */
 export enum QueryAvailabilitiesOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.availabilities.orderBy. */
@@ -2306,7 +2392,7 @@ export type QueryAvailabilitiesOrderByOrderByClause = {
 
 /** Allowed column names for Query.bankAccounts.orderBy. */
 export enum QueryBankAccountsOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.bankAccounts.orderBy. */
@@ -2319,7 +2405,7 @@ export type QueryBankAccountsOrderByOrderByClause = {
 
 /** Allowed column names for Query.billings.orderBy. */
 export enum QueryBillingsOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.billings.orderBy. */
@@ -2332,7 +2418,7 @@ export type QueryBillingsOrderByOrderByClause = {
 
 /** Allowed column names for Query.images.orderBy. */
 export enum QueryImagesOrderByColumn {
-  Position = 'POSITION',
+  Position = 'POSITION'
 }
 
 /** Order by clause for Query.images.orderBy. */
@@ -2345,7 +2431,7 @@ export type QueryImagesOrderByOrderByClause = {
 
 /** Allowed column names for Query.issues.orderBy. */
 export enum QueryIssuesOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.issues.orderBy. */
@@ -2358,7 +2444,7 @@ export type QueryIssuesOrderByOrderByClause = {
 
 /** Allowed column names for Query.memberships.orderBy. */
 export enum QueryMembershipsOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.memberships.orderBy. */
@@ -2371,7 +2457,7 @@ export type QueryMembershipsOrderByOrderByClause = {
 
 /** Allowed column names for Query.orders.orderBy. */
 export enum QueryOrdersOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.orders.orderBy. */
@@ -2384,7 +2470,7 @@ export type QueryOrdersOrderByOrderByClause = {
 
 /** Allowed column names for Query.organizations.orderBy. */
 export enum QueryOrganizationsOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.organizations.orderBy. */
@@ -2397,7 +2483,7 @@ export type QueryOrganizationsOrderByOrderByClause = {
 
 /** Allowed column names for Query.parkings.orderBy. */
 export enum QueryParkingsOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.parkings.orderBy. */
@@ -2410,7 +2496,7 @@ export type QueryParkingsOrderByOrderByClause = {
 
 /** Allowed column names for Query.payments.orderBy. */
 export enum QueryPaymentsOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.payments.orderBy. */
@@ -2423,7 +2509,7 @@ export type QueryPaymentsOrderByOrderByClause = {
 
 /** Allowed column names for Query.pilots.orderBy. */
 export enum QueryPilotsOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.pilots.orderBy. */
@@ -2436,7 +2522,7 @@ export type QueryPilotsOrderByOrderByClause = {
 
 /** Allowed column names for Query.prices.orderBy. */
 export enum QueryPricesOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.prices.orderBy. */
@@ -2449,7 +2535,7 @@ export type QueryPricesOrderByOrderByClause = {
 
 /** Allowed column names for Query.relatedIssues.orderBy. */
 export enum QueryRelatedIssuesOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.relatedIssues.orderBy. */
@@ -2462,7 +2548,7 @@ export type QueryRelatedIssuesOrderByOrderByClause = {
 
 /** Allowed column names for Query.reservations.orderBy. */
 export enum QueryReservationsOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.reservations.orderBy. */
@@ -2475,7 +2561,7 @@ export type QueryReservationsOrderByOrderByClause = {
 
 /** Allowed column names for Query.signs.orderBy. */
 export enum QuerySignsOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.signs.orderBy. */
@@ -2488,7 +2574,7 @@ export type QuerySignsOrderByOrderByClause = {
 
 /** Allowed column names for Query.spots.orderBy. */
 export enum QuerySpotsOrderByColumn {
-  CreatedAt = 'CREATED_AT',
+  CreatedAt = 'CREATED_AT'
 }
 
 /** Order by clause for Query.spots.orderBy. */
@@ -2502,7 +2588,7 @@ export type QuerySpotsOrderByOrderByClause = {
 /** Allowed column names for Query.vehicles.orderBy. */
 export enum QueryVehiclesOrderByColumn {
   CreatedAt = 'CREATED_AT',
-  IsPrimary = 'IS_PRIMARY',
+  IsPrimary = 'IS_PRIMARY'
 }
 
 /** Order by clause for Query.vehicles.orderBy. */
@@ -2546,7 +2632,7 @@ export type ResendEmailVerificationResponse = {
 /** The resend email verification statuses. */
 export enum ResendEmailVerificationStatus {
   /** The sent email status. */
-  EmailSent = 'EMAIL_SENT',
+  EmailSent = 'EMAIL_SENT'
 }
 
 /** The reservation. */
@@ -2645,7 +2731,7 @@ export enum ReservationRentalPeriod {
   /** The one hour period. */
   OneHour = 'ONE_HOUR',
   /** The two hour period. */
-  TwoHours = 'TWO_HOURS',
+  TwoHours = 'TWO_HOURS'
 }
 
 /** The reservation response messages. */
@@ -2667,7 +2753,7 @@ export enum ReservationResponseMessage {
   /** The spot taken message. */
   SpotTaken = 'SPOT_TAKEN',
   /** The waiting for payment message. */
-  WaitingForPayment = 'WAITING_FOR_PAYMENT',
+  WaitingForPayment = 'WAITING_FOR_PAYMENT'
 }
 
 /** The reservation response payload. */
@@ -2698,7 +2784,7 @@ export enum ReservationResponseStatus {
   /** The failure status. */
   Failure = 'FAILURE',
   /** The success status. */
-  Success = 'SUCCESS',
+  Success = 'SUCCESS'
 }
 
 /** The reservation statuses. */
@@ -2714,7 +2800,7 @@ export enum ReservationStatus {
   /** The expired status. */
   Expired = 'EXPIRED',
   /** The pending status. */
-  Pending = 'PENDING',
+  Pending = 'PENDING'
 }
 
 /** The reserve parking input. */
@@ -2789,7 +2875,7 @@ export type ResetPasswordResponse = {
 /** The reset password statuses. */
 export enum ResetPasswordStatus {
   /** The reset password status. */
-  PasswordReset = 'PASSWORD_RESET',
+  PasswordReset = 'PASSWORD_RESET'
 }
 
 /** The reset password URL input. */
@@ -2855,7 +2941,7 @@ export enum Resource {
   /** The verification type. */
   Verification = 'VERIFICATION',
   /** The withdrawal type. */
-  Withdrawal = 'WITHDRAWAL',
+  Withdrawal = 'WITHDRAWAL'
 }
 
 /** The sign. */
@@ -2911,7 +2997,7 @@ export enum SignStatus {
   /** The generated status. */
   Generated = 'GENERATED',
   /** The prepared status. */
-  Prepared = 'PREPARED',
+  Prepared = 'PREPARED'
 }
 
 /** The sign pdf templates. */
@@ -2993,7 +3079,7 @@ export enum SignTemplate {
   /** The white terms sign b3 pdf template. */
   WhiteTermsSignB3 = 'WHITE_TERMS_SIGN_B3',
   /** The white terms sign b4 pdf template. */
-  WhiteTermsSignB4 = 'WHITE_TERMS_SIGN_B4',
+  WhiteTermsSignB4 = 'WHITE_TERMS_SIGN_B4'
 }
 
 /** The sign types. */
@@ -3005,7 +3091,7 @@ export enum SignType {
   /** The price list type. */
   PriceList = 'PRICE_LIST',
   /** The terms type. */
-  Terms = 'TERMS',
+  Terms = 'TERMS'
 }
 
 /** Directions for ordering a list of records. */
@@ -3013,7 +3099,7 @@ export enum SortOrder {
   /** Sort records in ascending order. */
   Asc = 'ASC',
   /** Sort records in descending order. */
-  Desc = 'DESC',
+  Desc = 'DESC'
 }
 
 /** The parking spot. */
@@ -3102,7 +3188,7 @@ export enum SpotState {
   /** The occupied state. */
   Occupied = 'OCCUPIED',
   /** The reserved state. */
-  Reserved = 'RESERVED',
+  Reserved = 'RESERVED'
 }
 
 /** The spot statuses. */
@@ -3110,7 +3196,7 @@ export enum SpotStatus {
   /** The active status. */
   Active = 'ACTIVE',
   /** The inactive status. */
-  Inactive = 'INACTIVE',
+  Inactive = 'INACTIVE'
 }
 
 /** The Europe timezones. */
@@ -3232,7 +3318,7 @@ export enum Timezone {
   /** The Zagreb timezone. */
   Zagreb = 'ZAGREB',
   /** The Zurich timezone. */
-  Zurich = 'ZURICH',
+  Zurich = 'ZURICH'
 }
 
 /** The balance top-up request input. */
@@ -3281,7 +3367,7 @@ export enum TransactionType {
   /** The payment type. */
   Payment = 'PAYMENT',
   /** The withdrawal type. */
-  Withdrawal = 'WITHDRAWAL',
+  Withdrawal = 'WITHDRAWAL'
 }
 
 /** Specify if you want to include or exclude trashed results from a query. */
@@ -3291,7 +3377,7 @@ export enum Trashed {
   /** Return both trashed and non-trashed results. */
   With = 'WITH',
   /** Only return non-trashed results. */
-  Without = 'WITHOUT',
+  Without = 'WITHOUT'
 }
 
 /** The update billing input. */
@@ -3376,7 +3462,7 @@ export type UpdatePasswordResponse = {
 /** The update password statuses. */
 export enum UpdatePasswordStatus {
   /** The updated password status. */
-  PasswordUpdated = 'PASSWORD_UPDATED',
+  PasswordUpdated = 'PASSWORD_UPDATED'
 }
 
 /** The update pilot input. */
@@ -3477,7 +3563,7 @@ export enum UserRole {
   /** The partner role. */
   Partner = 'PARTNER',
   /** The renter role. */
-  Renter = 'RENTER',
+  Renter = 'RENTER'
 }
 
 /** The user statuses. */
@@ -3487,7 +3573,7 @@ export enum UserStatus {
   /** The banned status. */
   Banned = 'BANNED',
   /** The inactive status. */
-  Inactive = 'INACTIVE',
+  Inactive = 'INACTIVE'
 }
 
 /** The vehicle. */
@@ -3554,7 +3640,7 @@ export enum VehicleStatus {
   /** The active status. */
   Active = 'ACTIVE',
   /** The inactive status. */
-  Inactive = 'INACTIVE',
+  Inactive = 'INACTIVE'
 }
 
 /** The verification. */
@@ -3583,7 +3669,7 @@ export enum VerificationStatus {
   /** The pending status. */
   Pending = 'PENDING',
   /** The rejected status. */
-  Rejected = 'REJECTED',
+  Rejected = 'REJECTED'
 }
 
 /** The verification URL input. */

@@ -1,6 +1,6 @@
 'use client';
 
-import { Component, type ErrorInfo, type ReactNode } from 'react';
+import { Component, type ReactNode } from 'react';
 
 import { ErrorBoundaryAlert } from './error-boundry-alert';
 
@@ -23,9 +23,8 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     return { hasError: true, error };
   }
 
-  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    //TODO: Implement error logging
-    console.error('ErrorBoundary caught an error:', error, errorInfo);
+  public componentDidCatch(/* error: Error, errorInfo: ErrorInfo */) {
+    //TODO: Implement error logging e.g. Sentry
   }
 
   public render() {
