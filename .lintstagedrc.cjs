@@ -4,5 +4,6 @@ module.exports = {
         'pnpm run format',
         'pnpm run lint',
         'pnpm run type-check',
+        'pnpm run test'
     ],
 };
