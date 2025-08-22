@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist_Mono, Lato, Poppins } from 'next/font/google';
 
 import { ApolloProvider } from '@/lib/apollo/apollo.provider';
 
@@ -7,13 +7,22 @@ import { ErrorBoundary } from '@/components/error-boundry/error-boundary';
 
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+import { cn } from '@/lib/utils';
+
+const headingFont = Poppins({
+  weight: ['700'],
+  variable: '--font-heading',
   subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const fontSans = Lato({
+  weight: ['400'],
+  variable: '--font-sans',
+  subsets: ['latin'],
+});
+
+const fontMono = Geist_Mono({
+  variable: '--font-mono',
   subsets: ['latin'],
 });
 
@@ -29,7 +38,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={cn(fontSans.variable, fontMono.variable, headingFont.variable, 'antialiased')}
+      >
         <ErrorBoundary>
           <ApolloProvider>{children}</ApolloProvider>
         </ErrorBoundary>

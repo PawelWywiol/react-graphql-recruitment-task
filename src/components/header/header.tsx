@@ -25,7 +25,7 @@ export const Header = ({
       <Link href={backLink}>
         <ArrowLeft />
       </Link>
-      <h1>{title}</h1>
+      <h1 className="w-1/2">{title}</h1>
     </nav>
   </header>
 );
