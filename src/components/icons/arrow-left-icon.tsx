@@ -1,4 +1,4 @@
-export const ArrowLeft = ({ size = 40 }: { size?: number }) => (
+export const ArrowLeftIcon = ({ size = 40 }: { size?: number }) => (
   <svg
     width={size}
     height={size}

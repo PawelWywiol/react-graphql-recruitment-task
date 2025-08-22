@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 
-import { ArrowLeft } from '../icons/arrow-left';
+import { ArrowLeftIcon } from '../icons/arrow-left-icon';
 import { HeaderKeys } from '../icons/header-keys';
 
 export const Header = ({
@@ -21,9 +21,9 @@ export const Header = ({
     )}
   >
     <HeaderKeys className="absolute right-0 top-1/2 transform -translate-y-1/2" />
-    <nav className="section-container relative min-h-72 px-4 py-18 flex flex-row gap-6">
+    <nav className="container-content relative min-h-72 px-4 py-18 flex flex-row gap-6">
       <Link href={backLink}>
-        <ArrowLeft />
+        <ArrowLeftIcon />
       </Link>
       <h1 className="w-1/2">{title}</h1>
     </nav>

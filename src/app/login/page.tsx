@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <>
       <Header title="Login" />
-      <section className="section-container py-20">
+      <section className="container-content py-20">
         <LoginForm />
       </section>
     </>

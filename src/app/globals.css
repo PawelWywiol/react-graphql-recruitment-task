@@ -98,7 +98,7 @@
     @apply text-[2rem] font-bold leading-10;
   }
 
-  .section-container {
+  .container-content {
     @apply w-full max-w-3xl mx-auto;
   }
 
