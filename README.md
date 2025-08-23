@@ -56,3 +56,25 @@ Run the development server:
 ```bash
 pnpm dev
 ```
+
+### Production Environment
+
+Copy the example env file:
+
+```bash
+cp .env.example .env
+```
+
+Build docker image:
+
+```bash
+docker compose --env-file .env -f compose.production.yml build --no-cache
+```
+
+and run the application:
+
+```bash
+docker compose --env-file .env -f compose.production.yml up -d
+```
+
+The application should now be running in production mode. You can access it at `http://localhost:3000`.

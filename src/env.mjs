@@ -26,6 +26,3 @@ export const env = new Proxy(parsedEnv.data, {
     return target[/** @type {keyof typeof target} */ (property)];
   },
 });
-
-
-export { env }
