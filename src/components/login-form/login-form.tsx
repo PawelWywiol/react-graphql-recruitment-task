@@ -2,6 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { type Resolver, useForm } from 'react-hook-form';
 
 import {
@@ -21,6 +22,7 @@ import { Form } from '../ui/form';
 
 export const LoginForm = () => {
   const router = useRouter();
+  const [unknownError, setUnknownError] = useState<string | null>(null);
   const [loginUserMutation, { loading, error }] = useLoginUserMutation();
 
   const defaultValues: ValidLoginUserPayload = {
@@ -39,6 +41,8 @@ export const LoginForm = () => {
 
   const onSubmit = async (data: ValidLoginUserPayload) => {
     try {
+      setUnknownError(null);
+
       const result = await loginUserMutation({
         variables: {
           email: data.email,
@@ -54,6 +58,7 @@ export const LoginForm = () => {
         router.replace(LOGGED_IN_ROUTE_PATH);
       }
     } catch {
+      setUnknownError('An unknown error occurred. Please try again.');
       //TODO: Implement error logging e.g. Sentry
     }
   };
@@ -69,7 +74,9 @@ export const LoginForm = () => {
           <EmailFormField form={form} />
           <PasswordFormField form={form} />
         </div>
-        {error && <div className="text-red-500 text-sm">{error.message}</div>}
+        {(unknownError || error) && (
+          <div className="text-red-500 text-sm">{error?.message ?? unknownError}</div>
+        )}
         <Button type="submit" className="mt-4" disabled={loading}>
           {loading ? 'Logging in...' : 'Submit'}
         </Button>
